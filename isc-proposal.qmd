@@ -1,19 +1,33 @@
 ---
-title: "Bridging R and Whitebox Workflows"
+title: Bridging R and Whitebox Workflows
+subtitle: A proposal for the 2025 ISC Grant Program
+short-title: wbw
 author: 
   - name: Anatolii Tsyplenkov
+    email: tsyplenkova@landcareresearch.co.nz
     orcid: 0000-0003-4144-8402
     affiliations:
       - "Manaaki Whenua – Landcare Research, 4410 Palmerston North, New Zealand"
     
 date: today
 date-format: iso
+bibliography: references.bib
+
 format:
   hikmah-pdf:
     geometry: 
-      - left=1.25in
-      - right=1.25in
-bibliography: references.bib
+      - top=2cm
+      - right=2cm
+      - bottom=2cm
+      - left=2cm
+    # Use biblatex-chicago
+    biblatex-chicago: true
+    biblio-style: authordate
+    biblatexoptions: 
+      - backend=biber
+      - autolang=hyphen
+      - isbn=false
+      - uniquename=false
 ---
 
 {{< include proposal/signatories.qmd >}}
@@ -27,8 +41,6 @@ bibliography: references.bib
 {{< include proposal/requirements.qmd >}}
 
 {{< include proposal/success.qmd >}}
-
-[@lindsay2016]
 
 # References
 
