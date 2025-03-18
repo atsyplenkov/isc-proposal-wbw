@@ -28,3 +28,5 @@ Covering non-technical activities like on-going publicity, paper preparation, di
  - [ ] UseR!
  - [ ] ISC meetings
 -->
+
+Due to AT location in New Zealand, attending international meeting and conferences maybe very costly and not eco-friendly. However, in November 2025 the [FOOS4G Conference](https://2025.foss4g.org/) will take place in Auckland, NZ.
