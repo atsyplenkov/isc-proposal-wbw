@@ -1,7 +1,3 @@
----
-bibliography: references.bib
----
-
 # Signatories
 
 ```{=html}
@@ -20,7 +16,10 @@ Who are the people responsible for actually delivering the project if the propos
 -->
 ```
 
-## Contributors
+**Anatolii Tsyplenkov, PhD**: Dr Tsyplenkov (Researcher, Manaaki Whenua – Landcare Research) is a geoscientist by training with a specialisation in geomorphology and a long-running interest in geospatial analysis. He has authored or contributed to several geospatial packages on CRAN, including {centerline}, {rmapshaper}, and {geos}. He is actively developing other R packages, which are published on GitHub only, including soil erosion and hydrological modelling tools, spatial filtering with Whittaker-Eilers smoother.
+
+
+<!-- ## Contributors -->
 
 ```{=html}
 <!-- 
@@ -35,5 +34,4 @@ Who are the people who have actively helped with this proposal but won't necessa
 Who has been given the opportunity to provide feedback on the proposal? This should include any R Consortium & ISC members who the proposal has been discussed with.
 -->
 ```
-
-Here is my example [@lindsay2016]
+TBA

@@ -13,6 +13,14 @@ date: today
 date-format: iso
 bibliography: references.bib
 
+fig-dpi: 500
+
+execute:
+  echo: false
+  output: true
+  warning: false
+  freeze: true
+
 format:
   hikmah-pdf:
     geometry: 
