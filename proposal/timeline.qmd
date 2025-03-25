@@ -10,6 +10,8 @@ Covering the planning phase, this section should provide a relatively detailed p
  - [ ] Reporting framework
 -->
 
+Development will take place publicly on the GitHub account: [atsyplenkov/wbw](https://github.com/atsyplenkov/wbw), owned by Anatolii Tsyplenkov. The project package will be licensed compatibly with R and `terra`/`sf` (MIT or GPL >= 2). The project leader will provide the R Consortium with monthly updates based on progress toward the deliverables below.
+
 
 ## Technical delivery
 <!--
@@ -29,4 +31,4 @@ Covering non-technical activities like on-going publicity, paper preparation, di
  - [ ] ISC meetings
 -->
 
-Due to AT location in New Zealand, attending international meeting and conferences maybe very costly and not eco-friendly. However, in November 2025 the [FOOS4G Conference](https://2025.foss4g.org/) will take place in Auckland, NZ.
+Each package release will be announced on social media platforms using the `#rstats` tag and on a blog cross-posted to R-bloggers. Due to our location in New Zealand, attending international meetings and conferences is very costly and not eco-friendly. We will submit an abstract to the [FOSS4G Conference](https://2025.foss4g.org/), which will take place in Auckland, New Zealand in November 2025.

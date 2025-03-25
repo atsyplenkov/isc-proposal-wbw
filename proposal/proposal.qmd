@@ -23,7 +23,7 @@ Depending on project type the detail section should include:
  - [ ] Assumptions
 -->
 
-The Minimum Viable Product (MVP) per se already exists and was published as an alpha version on GitHub by Anatolii Tsyplenkov in January 2025. The MVP introduces several `S7` class objects, such as `WhiteboxRaster` and `WhiteboxExtent`, which provide pointers to WWP objects via the `reticulate` package, along with a family of `wbw_*` functions implemented as `S7` generic methods. Additionally, transition functions for converting `WhiteboxRaster` to `SpatRast` objects and vice versa (`as_rast()` and `as_wbw_raster()`) have been implemented. Even at this early stage, the MVP enables basic terrain analysis, as demonstrated below:
+The Minimum Viable Product (MVP) *per se* already exists and was published as an alpha version on [GitHub](https://github.com/atsyplenkov/wbw) by Anatolii Tsyplenkov in January 2025. The MVP introduces several `S7` class objects, such as `WhiteboxRaster` and `WhiteboxExtent`, which provide pointers to WWP objects via the `reticulate` package, along with a family of `wbw_*` functions implemented as `S7` generic methods. Additionally, transition functions for converting `WhiteboxRaster` to `SpatRast` objects and vice versa (`as_rast()` and `as_wbw_raster()`) have been implemented. Even at this early stage, the MVP enables basic terrain analysis, as demonstrated below:
 
 ```{r}
 #| eval: false
@@ -43,7 +43,7 @@ wbw_read_raster() |> # Read raster as a WhiteboxRaster object
   plot(main = "Aspect") # plot using {terra} capabilities
 ```
 
-![Terrain aspect, estimated using the `wbw` package and plotted with `terra`](https://github.com/atsyplenkov/wbw/blob/main/man/figures/README-terra-1.png?raw=true){#fig-aspect width=80%}
+![Terrain aspect, estimated using the `wbw` package and plotted with `terra`](https://github.com/atsyplenkov/wbw/blob/main/man/figures/README-terra-1.png?raw=true){#fig-aspect width=60%}
 
 The alpha version was well received by the community, serving as a catalyst for this proposal while also highlighting weaknesses in the software that this proposal aims to address.
 
