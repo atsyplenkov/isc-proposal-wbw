@@ -15,6 +15,8 @@ bibliography: references.bib
 
 fig-dpi: 500
 
+highlight-style: tango
+
 execute:
   echo: false
   output: true
@@ -23,6 +25,11 @@ execute:
 
 format:
   hikmah-pdf:
+    # Font settings
+    sansfont: "Inter"
+    mainfont: "Segoe UI"
+    monofont: "Fira Code"
+    # Page size
     geometry: 
       - top=2cm
       - right=2cm
@@ -36,6 +43,13 @@ format:
       - autolang=hyphen
       - isbn=false
       - uniquename=false
+
+header-includes: |
+  \usepackage{xcolor}
+  \definecolor{codebg}{gray}{0.9}
+  \let\oldtexttt\texttt
+  \renewcommand{\texttt}[1]{\colorbox{codebg}{\oldtexttt{#1}}}
+
 ---
 
 {{< include proposal/signatories.qmd >}}
