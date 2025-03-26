@@ -161,7 +161,7 @@ theme_wbw <- function(
 
 # Save function ----------------------------------------------------------
 wbw_save <-
-  function(filename, plot, dpi = 1000, w = 16, h = 12, units = "cm") {
+  function(filename, plot, dpi = 1000, w = 16, h = 12, units = "cm", ...) {
     showtext::showtext_opts(dpi = dpi)
 
     ggplot2::ggsave(
@@ -171,7 +171,8 @@ wbw_save <-
       dpi = dpi,
       width = w,
       height = h,
-      units = units
+      units = units,
+      ...
     )
 
     showtext::showtext_opts(dpi = 96)

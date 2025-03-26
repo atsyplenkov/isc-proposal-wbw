@@ -17,3 +17,9 @@ vignettes/*.pdf
 # File gen artefacts
 *.html
 *.pdf
+*.aux
+*.log
+
+# Quarto cache
+isc-proposal_cache
+isc-proposal_files

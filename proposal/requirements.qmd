@@ -8,10 +8,14 @@ An idea of what is required to make the project actually happen
 Who needs to be involved, what's the proposed structure, what will it take to get their involvement?
 -->
 
+The project leader, Anatolii Tsyplenkov, will oversee the development of all three work packages (see @fig-gannt). Contributions from the community will be very welcome and encouraged, following the project's [contributing guide](https://github.com/atsyplenkov/wbw/blob/main/CONTRIBUTING.md).
+
 ## Processes
 <!-- 
 What processes need to be put in place e.g. codes of conduct, regular ISC meetings, handover to the community at large?
 -->
+
+For first releases, no new processes are needed: the package is already accessible and contributable via detailed instructions presented in the contributing guide. Future releases will rely on ROpenSci feedback and user community input to identify bugs and prioritise features.
 
 ## Tools & Tech
 <!--
@@ -22,13 +26,24 @@ Will cloud computing be used - if yes are there are necessary components that wi
 Are there tools or tech that don't exist that will be produced to facilitate the project?
 -->
 
+Development will take place on GitHub using the Git version control system, Codecov for test coverage, and GitHub Actions CI/CD capabilities for package testing in various environments. The development documentation will be hosted on Anatolii's personal website ([https://wbw.anatolii.nz/](https://wbw.anatolii.nz/)); however, after ROpenSci submission, it is expected to transfer documentation to the ROpenSci domains.
+
 ## Funding
 <!-- 
 [TO DO] THE GUIDANCE IS PRETTY UNCLEAR, ESP IN LIGHT OF GABOR'S PROPOSAL VS AWARD SIZE
 
 -->
 
+The timeline above (see @fig-gannt for details) envisions the project leader contributing 1/6 FTE during a 6-month period of active development (from May to October 2025). At a mean data science salary in New Zealand of about $140,000 NZD per year (according to the [Hays salary guide](https://www.hays.com.au/documents/276732/1102429/Hays+Salary+Guide+FY24_25+EMBARGO.pdf) for FY2024/2025), this amounts to roughly $11,600 NZD or $6,600 USD. $500 USD of this sum will be spent on a 'Whitebox Workflows for Python Pro' [subscription](https://www.whiteboxgeo.com/wbw-purchase/), required for implementing Pro functions (see activity No. 2.5 in **WP2**).
+
+Additionally, we are requesting funds for attending the [FOSS4G conference](https://2025.foss4g.org/). Unfortunately, at the moment of writing the current proposal, the registration fees are not yet announced. However, according to the previous [FOSS4G conference in 2023](https://2023.foss4g-oceania.org/#/attend), the early-bird registration fee should be approximately $400 NZD. A round-trip ticket from Palmerston North to Auckland in November should [cost](https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTExLTE1ag0IAhIJL20vMDF0bTJzcgwIAxIIL20vMDEydHMaKRIKMjAyNS0xMS0yMmoMCAMSCC9tLzAxMnRzcg0IAhIJL20vMDF0bTJzQAFIAXABggELCP___________wGYAQE) approximately $200 NZD, with a roughly $700 NZD cost for the hotel room for the conference week, which totals up to an additional $1,300 NZD.
+
+Therefore, the overall project budget is **$13,000 NZD or $7,400 USD**.
+
+
 ## Summary
 <!--
 A summary of the requirements that contextualises the costs
 -->
+
+Time is expected to be spread across tasks as follows: development and documentation (75%), publication and promotion (15%), coordination (10%).

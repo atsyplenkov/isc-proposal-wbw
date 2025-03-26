@@ -21,20 +21,19 @@ execute:
   echo: false
   output: true
   warning: false
-  freeze: true
 
 format:
   hikmah-pdf:
     # Font settings
-    sansfont: "Inter"
-    mainfont: "Segoe UI"
+    sansfont: "Jost"
+    mainfont: "Inter"
     monofont: "Fira Code"
     # Page size
     geometry: 
-      - top=2cm
-      - right=2cm
-      - bottom=2cm
-      - left=2cm
+      - top=1cm
+      - right=1.5cm
+      - bottom=1.5cm
+      - left=1.5cm
     # Use biblatex-chicago
     biblatex-chicago: true
     biblio-style: authordate

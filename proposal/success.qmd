@@ -8,15 +8,22 @@ Projects should have a definition of done that is measurable, and a thorough und
 What does success look like? 
 -->
 
+The `wbw` package publishing on CRAN after ROpenSci software peer-review and the announcement to the wider audience at the FOSS4G conference could be considered a successfully finished project.
+
 ## Measuring success
 <!-- 
 How will we know when success is achieved, what markers can we use along the way 
 -->
 
+The milestones and deliverables outlined in the Gantt chart (@fig-gannt) should be used for progress tracking, with the successful passing of the ROpenSci software peer review as a major indicator of success (i.e., **D1** at @fig-gannt). After completion, we will follow several indicators to judge success and prompt necessary follow-up work, including monthly download rates, questions and problems raised on the GIS Stack Exchange (in addition to issues raised on the package repository), blog posts by users, citations in published research, and user contributions to the codebase. The latter would be a very strong indicator of success.
+
+
 ## Future work
 <!-- 
 How could this be extended / developed in the future by yourself and/or the community in general?
 -->
+
+The project completion will mean that all functions from the current version (v1.3.4) of the _'Whitebox Workflows for Python'_ are implemented. However, the _'Whitebox Workflows for Python'_ itself is still under active development (see PyPi [release history](https://pypi.org/project/whitebox-workflows/#history)), with new tools being introduced with new versions. We will ensure that every release of the _'Whitebox Workflows for Python'_ will be mirrored in the `wbw` package by the project leader or by other maintainers in the ROpenSci community.
 
 ## Key risks
 <!-- 
@@ -28,3 +35,7 @@ What sort of things could come up that can delay or break the project?
  - [ ] Costs
 
 -->
+
+The overall risk of the project might be considered low, as the core functionality already exists in the MVP and has been tested across various environments. Nevertheless, we do have some concerns about the way of implementing tools listed under the 'Pro' licence. Since none of the project members have ever used _'Whitebox Workflows for Python Pro'_ before, its porting to R can potentially be harder than it seems.
+
+The other risk is that there is just one person on the project. This could lead to poor package design if Anatolii Tsyplenkov is the only one providing input. But we will be seeking early feedback from ROpenSci and from the ISC if that is appropriate. The project could get delayed because of sickness or some other issue that might arise.

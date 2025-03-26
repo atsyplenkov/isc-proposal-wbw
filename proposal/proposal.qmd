@@ -10,7 +10,7 @@ Our goal is to integrate 'Whitebox Workflows' into R, ensuring full interoperabi
 At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
 -->
 
-Therefore, we are aiming to develop a `wbw` R package that will serve as a bridge between 'Whitebox Workflows for Python' (WWP) and R. However, since the existing R-spatial toolkit is already quite mature and diverse, we are aiming to make `wbw` functions and objects fully compatible with R-spatial pillars such as `sf` and `terra`. By investing in existing convention will repay in a smoother learning curve for the new users. The primary workhorse for `wbw` would be the `S7` and `reticulate`, which will enable us to access the WWP computational engine. It's important to note, that the R bindings needed to be written to the Python library 'Whitebox Workflows for Python', not the 'Whitebox Tools', an open-source Rust CLI and GUI tool.
+Therefore, we are aiming to develop a `wbw` R package that will serve as a bridge between _'Whitebox Workflows for Python'_ (WWP) and R. However, since the existing R-spatial toolkit is already quite mature and diverse, we are aiming to make `wbw` functions and objects fully interoperable with R-spatial pillars such as `sf` and `terra`. By investing in existing convention will repay in a smoother learning curve for the new users. The primary workhorse for `wbw` would be the `S7` and `reticulate` packages, which will enable us to access the WWP computational engine. It's important to note, that the R bindings needed to be written to the Python library _'Whitebox Workflows for Python'_, not the 'Whitebox Tools', an open-source Rust CLI and GUI tool.
 
 ## Detail
 <!--
@@ -23,7 +23,7 @@ Depending on project type the detail section should include:
  - [ ] Assumptions
 -->
 
-The Minimum Viable Product (MVP) *per se* already exists and was published as an alpha version on [GitHub](https://github.com/atsyplenkov/wbw) by Anatolii Tsyplenkov in January 2025. The MVP introduces several `S7` class objects, such as `WhiteboxRaster` and `WhiteboxExtent`, which provide pointers to WWP objects via the `reticulate` package, along with a family of `wbw_*` functions implemented as `S7` generic methods. Additionally, transition functions for converting `WhiteboxRaster` to `SpatRast` objects and vice versa (`as_rast()` and `as_wbw_raster()`) have been implemented. Even at this early stage, the MVP enables basic terrain analysis, as demonstrated below:
+The Minimum Viable Product (MVP) *per se* already exists and was published as an alpha version on [GitHub](https://github.com/atsyplenkov/wbw) by Anatolii Tsyplenkov in January 2025. The MVP introduces several `S7` class objects, such as `WhiteboxRaster` and `WhiteboxExtent`, which provide pointers to WWP objects via the `reticulate` package, along with a family of `wbw_*` functions implemented as `S7` generic methods. Additionally, transition functions for converting `WhiteboxRaster` to `SpatRast` objects (from `terra` package) and *vice versa* (`as_rast()` and `as_wbw_raster()`) have been implemented. Even at this early stage, the MVP enables basic terrain analysis, as demonstrated below:
 
 ```{r}
 #| eval: false
@@ -43,14 +43,14 @@ wbw_read_raster() |> # Read raster as a WhiteboxRaster object
   plot(main = "Aspect") # plot using {terra} capabilities
 ```
 
-![Terrain aspect, estimated using the `wbw` package and plotted with `terra`](https://github.com/atsyplenkov/wbw/blob/main/man/figures/README-terra-1.png?raw=true){#fig-aspect width=60%}
+![Terrain aspect, estimated using the `wbw` package and plotted with `terra`](https://github.com/atsyplenkov/wbw/blob/main/man/figures/README-terra-1.png?raw=true){#fig-aspect width=50%}
 
-The alpha version was well received by the community, serving as a catalyst for this proposal while also highlighting weaknesses in the software that this proposal aims to address.
+The alpha version (v0.0.3) was well received by the community, serving as a catalyst for this proposal while also highlighting weaknesses in the software that this proposal aims to address. However, the first benchmarks, comparing existing R toolkit for terrain analysis (`whiteboxR` and `terra`), shows that the `wbw` can significantly outperform them in a complex workflows (see benchmarks [here](https://wbw.anatolii.nz/articles/benchmarks)). 
 
-One major drawback of many Python-based R packages is the need to manually install Python dependencies, as seen in packages like `rgee` [@aybarRgeeBindingsCalling2021] and `keras` [@allaireKerasInterfaceKeras2017]. In our view, this can overcomplicate usage and deter users. To address this, the `wbw` package currently installs Python dependencies automatically on first launch. However, with the recent release of `reticulate` 1.41, dependency management can be streamlined using the **uv** Python environment manager. Therefore, the first goal of the project is to rewrite the dependency management system.
+One major drawback of many Python-based R packages is the need to manually install Python dependencies, as seen in packages like `rgee` [@aybarRgeeBindingsCalling2021] and `keras` [@allaireKerasInterfaceKeras2017]. In our view, this can overcomplicate usage and deter users. To address this issue, the `wbw` package currently installs Python dependencies automatically on first launch. However, with the recent release of `reticulate` 1.41, dependency management can be streamlined using the `uv` Python environment manager. Therefore, the first goal of the project is to rewrite the dependency management system.
 
 This leads to the second goal—writing tests that mock different environments across operating systems to ensure smooth installation and package loading. Additionally, property-based testing will be introduced to prevent R crashes, and snapshot tests will be implemented to ensure consistent output in complex workflows.
 
-Once dependency management and testing infrastructure are in place, the third objective is to integrate existing WWP functions. Currently, only 32 out of approximately 507 WWP functions have R bindings. This will also require introducing additional `S7` classes to handle vector (i.e., `WhiteboxVector`) and LiDAR data (`WhiteboxLidar`).
+Once dependency management and testing infrastructure are in place, the third objective is to integrate existing WWP functions. Currently, only 32 out of approximately 507 WWP functions have R bindings, meaning that more than 90% of the tools still need to be ported (see roadmap at [GitHub](https://github.com/atsyplenkov/wbw/issues/1)). This will also require introducing additional `S7` classes to handle vector (i.e., `WhiteboxVector`) and LiDAR data (`WhiteboxLidar`).
 
 Finally, we aim to enhance the existing documentation by adding tutorials, benchmarks, and articles, as we believe that better documentation leads to better software [@doraAccelerateStateDevOps2023].

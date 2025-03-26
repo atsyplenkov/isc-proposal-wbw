@@ -20,6 +20,76 @@ Covering the actual delivery of the project this section should provide at least
 Including target dates is really important as you need to be committed and the ISC need to have a means of tracking delivery
 -->
 
+We propose a start date of 1st of May 2025 and outline three work packages for successful development of the software proposed here, as follows (see @fig-gannt). 
+
+**WP1: Core System Design**  
+In WP1, we will redesign the Python dependency with `uv` support using the updated `reticulate` v1.41. Additionally, we will update the testing framework to include unit tests, snapshot tests, and property-based testing. Currently, testing in the `wbw` package is implemented using the `tinytest` package, but additional dependencies such as `quicktest` and `mockery` will be introduced. There is also a possibility of fully transitioning to the `testthat` infrastructure, if needed. Furthermore, we plan to add support for `WhiteboxVector` and `WhiteboxLidar` objects, which will later be used for GIS tools and LiDAR processing. The first project milestone (**M1**) will focus on establishing the framework and preparing the package for function implementation.
+
+**WP2: Package Functionality**  
+Once the core system is in place, we will begin implementing functions. Every function from _'Whitebox Workflows for Python'_ will be ported to the `wbw` package as an `S7` generic method. This work package primarily involves routine function implementation, as most functions follow a similar structure. Once the majority of functions have been ported, tested, and documented—including vignettes and tutorials—the `wbw` package will be submitted for [ROpenSci Software Peer Review](https://ropensci.org/software-review/) (**M2**). ROpenSci recommends submitting a package at a mature stage, where most functionality is implemented but still allows for refinements. We acknwoledge that review process may lead to significant modifications. The third milestone (**M3**) will be the initial ROpenSci feedback, which could result in major improvements, including function renaming and breaking changes, therefore we are booking a buffer time for this.
+
+**WP3: Dissemination**  
+Following the resolution of ROpenSci review comments and the completion of the remaining functionality, we anticipate the package’s acceptance by ROpenSci as the project’s first deliverable (**D1**). Around this time, we will submit an abstract for the [FOSS4G Conference](https://2025.foss4g.org/) (**M4**). By this point, all documentation, tutorials, and articles should be finalised and published on a dedicated website ([https://wbw.anatolii.nz](https://wbw.anatolii.nz)). After undergoing a thorough software peer review, we expect minimal additional effort to prepare the package for CRAN submission, which we see as the second project deliverable (**D2**). The final deliverable (**D3**) will be the presentation of our work at the [FOSS4G Conference](https://2025.foss4g.org/) in Auckland in November 2025, marking the completion of the project.
+
+```{r}
+library(ganttrify)
+source("src/utils-ggplot.R")
+
+# fmt:skip
+wbw_project <- tibble::tribble(
+  ~wp,   ~activity,                                 ~start_date,  ~end_date,
+  "WP1", "1.1. Dependency management",              "2025-05-01", "2025-05-07",
+  "WP1", "1.2. Testing infrastructure",             "2025-05-07", "2025-05-15",
+  "WP1", "1.3. WhiteboxVector support",             "2025-05-16", "2025-05-20",
+  "WP1", "1.4. LiDAR objects support",              "2025-05-20", "2025-05-25",
+  "WP2", "2.1. Geomorphometry and Hydrology tools", "2025-06-01", "2025-06-06",
+  "WP2", "2.2. GIS and Math tools",                 "2025-06-08", "2025-06-15",
+  "WP2", "2.3. Image processing tools",             "2025-06-20", "2025-06-25",
+  "WP2", "2.4. LiDAR processing tools",             "2025-05-20", "2025-07-07",
+  "WP2", "2.5. WbW Pro tools",                      "2025-07-10", "2025-07-25",
+  "WP3", "3.1. Vignette writing",                   "2025-06-01", "2025-10-01",
+  "WP3", "3.2. ROpenSci software review",           "2025-08-01", "2025-10-01",
+  "WP3", "3.3. CRAN submission",                    "2025-10-01", "2025-10-15",
+  "WP3", "3.4. FOSS4G conference",                  "2025-11-01", "2025-11-23"
+)
+
+# fmt:skip
+wbw_spots <- tibble::tribble(
+  ~activity, ~spot_type, ~spot_date,
+  "WP1",     "M1",       "2025-05-22",
+  "WP2",     "M2",       "2025-06-25",
+  "WP2",     "M3",       "2025-08-01",
+  "WP2",     "D1",       "2025-10-01",
+  "WP3",     "M4",       "2025-09-15",
+  "WP3",     "D2",       "2025-10-15",
+  "WP3",     "D3",       "2025-11-17"
+)
+
+plt_gantt <-
+  ganttrify::ganttrify(
+    project = wbw_project,
+    spots = wbw_spots,
+    by_date = TRUE,
+    alpha_wp = 0,
+    exact_date = TRUE,
+    month_number_label = FALSE,
+    mark_quarters = TRUE,
+    project_start_date = "2025-05",
+    font_family = "Inter"
+  )
+
+wbw_save(
+  "figures/figure03_timeline.png",
+  plt_gantt,
+  w = 18,
+  h = 8,
+  dpi = 500,
+  bg = "white"
+)
+```
+
+![Timeline of research activities and dissemination for each work package. Start date is 1st May 2025](figures/figure03_timeline.png){#fig-gannt width=80%}
+
 ## Other aspects
 <!--
 Covering non-technical activities like on-going publicity, paper preparation, discussion groups etc. that might be required to facilitate successful delivery of the project.
@@ -31,4 +101,4 @@ Covering non-technical activities like on-going publicity, paper preparation, di
  - [ ] ISC meetings
 -->
 
-Each package release will be announced on social media platforms using the `#rstats` tag and on a blog cross-posted to R-bloggers. Due to our location in New Zealand, attending international meetings and conferences is very costly and not eco-friendly. We will submit an abstract to the [FOSS4G Conference](https://2025.foss4g.org/), which will take place in Auckland, New Zealand in November 2025.
+Each package release will be announced on social media platforms using the `#rstats` tag and on a blog cross-posted to R-bloggers. Due to our location in New Zealand, attending international meetings and conferences is very costly and not eco-friendly. We will submit an abstract to the [FOSS4G Conference](https://2025.foss4g.org/), which will take place in Auckland, New Zealand in November 2025. We foresee this conference as a good platform for the public package announcement and core functionality demonstration, as usually FOSS4G attracts a lot of R users.
