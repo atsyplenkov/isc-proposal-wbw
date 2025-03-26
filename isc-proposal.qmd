@@ -2,6 +2,7 @@
 title: Bridging R and Whitebox Workflows
 subtitle: A proposal for the 2025 ISC Grant Program
 short-title: wbw
+code-repo: "Access the code, data, and analysis at <https://github.com/atsyplenkov/isc-proposal-wbw>"
 author: 
   - name: Anatolii Tsyplenkov
     email: tsyplenkova@landcareresearch.co.nz
