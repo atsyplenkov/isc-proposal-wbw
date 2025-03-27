@@ -10,8 +10,8 @@ Covering the planning phase, this section should provide a relatively detailed p
  - [ ] Reporting framework
 -->
 
-Development will take place publicly on the GitHub account: [atsyplenkov/wbw](https://github.com/atsyplenkov/wbw), owned by Anatolii Tsyplenkov. The project package will be licensed compatibly with R and `terra`/`sf` (MIT or GPL >= 2). The project leader will provide the R Consortium with monthly updates based on progress toward the deliverables below.
-
+Development will take place publicly in the GitHub repository: [atsyplenkov/wbw](https://github.com/atsyplenkov/wbw), owned by Anatolii Tsyplenkov. The project package will be licensed compatibly with R and `terra`/`sf` (MIT or GPL >= 2). The project leader will provide the R Consortium with monthly updates based on progress toward the deliverables below.
+<!--JN: I would suggest specifying one of the licenses-->
 
 ## Technical delivery
 <!--
@@ -20,12 +20,16 @@ Covering the actual delivery of the project this section should provide at least
 Including target dates is really important as you need to be committed and the ISC need to have a means of tracking delivery
 -->
 
+<!-- JN: I know that the current plan fits nicely, but the questions is: how long it takes to get the decision and the funding? Would it be possible before May 1st? -->
 We propose a start date of 1st of May 2025 and outline three work packages for successful development of the software proposed here, as follows (see @fig-gannt). 
 
 **WP1: Core System Design**  
-In WP1, we will redesign the Python dependency with `uv` support using the updated `reticulate` v1.41. Additionally, we will update the testing framework to include unit tests, snapshot tests, and property-based testing. Currently, testing in the `wbw` package is implemented using the `tinytest` package, but additional dependencies such as `quicktest` and `mockery` will be introduced. There is also a possibility of fully transitioning to the `testthat` infrastructure, if needed. Furthermore, we plan to add support for `WhiteboxVector` and `WhiteboxLidar` objects, which will later be used for GIS tools and LiDAR processing. The first project milestone (**M1**) will focus on establishing the framework and preparing the package for function implementation.
+In WP1, we will redesign the Python dependency with `uv` support using the updated `reticulate` v1.41. Additionally, we will update the testing framework to include unit tests, property-based testing, and  snapshot tests. Currently, testing in the `wbw` package is implemented using the `tinytest` package, but additional soft dependencies such as `quicktest` and `mockery` will be introduced. 
+<!-- JN: I would suggest removing this sentence: "There is also a possibility of fully transitioning to the `testthat` infrastructure, if needed." -->
+Furthermore, we plan to add support for `WhiteboxVector` and `WhiteboxLidar` objects, which will later be used for GIS tools and LiDAR processing. The first project milestone (**M1**) will focus on establishing the framework and preparing the package for function implementation.
 
-**WP2: Package Functionality**  
+**WP2: Package Functionality**
+<!-- JN: (possibly silly) question: given that most of the functions follow a similar structure -- cannot they be implemented by writing some "metafunction" that creates them?   -->
 Once the core system is in place, we will begin implementing functions. Every function from _'Whitebox Workflows for Python'_ will be ported to the `wbw` package as an `S7` generic method. This work package primarily involves routine function implementation, as most functions follow a similar structure. Once the majority of functions have been ported, tested, and documented—including vignettes and tutorials—the `wbw` package will be submitted for [ROpenSci Software Peer Review](https://ropensci.org/software-review/) (**M2**). ROpenSci recommends submitting a package at a mature stage, where most functionality is implemented but still allows for refinements. We acknwoledge that review process may lead to significant modifications. The third milestone (**M3**) will be the initial ROpenSci feedback, which could result in major improvements, including function renaming and breaking changes, therefore we are booking a buffer time for this.
 
 **WP3: Dissemination**  
@@ -66,25 +70,25 @@ wbw_spots <- tibble::tribble(
 )
 
 plt_gantt <-
-  ganttrify::ganttrify(
-    project = wbw_project,
-    spots = wbw_spots,
-    by_date = TRUE,
-    alpha_wp = 0,
-    exact_date = TRUE,
-    month_number_label = FALSE,
-    mark_quarters = TRUE,
-    project_start_date = "2025-05",
-    font_family = "Inter"
-  )
+    ganttrify::ganttrify(
+        project = wbw_project,
+        spots = wbw_spots,
+        by_date = TRUE,
+        alpha_wp = 0,
+        exact_date = TRUE,
+        month_number_label = FALSE,
+        mark_quarters = TRUE,
+        project_start_date = "2025-05",
+        font_family = "Inter"
+    )
 
 wbw_save(
-  "figures/figure03_timeline.png",
-  plt_gantt,
-  w = 18,
-  h = 8,
-  dpi = 500,
-  bg = "white"
+    "figures/figure03_timeline.png",
+    plt_gantt,
+    w = 18,
+    h = 8,
+    dpi = 500,
+    bg = "white"
 )
 ```
 
@@ -101,4 +105,4 @@ Covering non-technical activities like on-going publicity, paper preparation, di
  - [ ] ISC meetings
 -->
 
-Each package release will be announced on social media platforms using the `#rstats` tag and on a blog cross-posted to R-bloggers. Due to our location in New Zealand, attending international meetings and conferences is very costly and not eco-friendly. We will submit an abstract to the [FOSS4G Conference](https://2025.foss4g.org/), which will take place in Auckland, New Zealand in November 2025. We foresee this conference as a good platform for the public package announcement and core functionality demonstration, as usually FOSS4G attracts a lot of R users.
+Each package release will be announced on social media platforms using the `#rstats` and `#rspatial` tags and on a blog cross-posted to R-bloggers. Due to our location in New Zealand, attending international meetings and conferences is very costly and not eco-friendly. We will submit an abstract to the [FOSS4G Conference](https://2025.foss4g.org/), which will take place in Auckland, New Zealand in November 2025. We foresee this conference as a good platform for the public package announcement and core functionality demonstration, as usually FOSS4G attracts a lot of R users.

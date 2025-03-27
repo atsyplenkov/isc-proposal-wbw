@@ -37,5 +37,8 @@ What sort of things could come up that can delay or break the project?
 -->
 
 The overall risk of the project might be considered low, as the core functionality already exists in the MVP and has been tested across various environments. Nevertheless, we do have some concerns about the way of implementing tools listed under the 'Pro' licence. Since none of the project members have ever used _'Whitebox Workflows for Python Pro'_ before, its porting to R can potentially be harder than it seems.
+<!-- JN: again, this PRO part sounds vague -->
 
-The other risk is that there is just one person on the project. This could lead to poor package design if Anatolii Tsyplenkov is the only one providing input. But we will be seeking early feedback from ROpenSci and from the ISC if that is appropriate. The project could get delayed because of sickness or some other issue that might arise.
+The other risk is that there is just one person on the project. This could lead to poor package design if Anatolii Tsyplenkov is the only one providing input. To limit this risk, we will be seeking early feedback from ROpenSci and from the ISC if that is appropriate. The project could get delayed because of sickness or some other issue that might arise.
+
+<!-- JN: one final idea -- have you consider contacting John Lindsay to get his thoughts/opinions? -->

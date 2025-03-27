@@ -16,7 +16,7 @@ Who are the people responsible for actually delivering the project if the propos
 -->
 ```
 
-**Anatolii Tsyplenkov, PhD**: Dr Tsyplenkov (Researcher, Manaaki Whenua – Landcare Research) is a geoscientist by training with a specialisation in geomorphology and a long-running interest in geospatial analysis. He has authored or contributed to several geospatial packages on CRAN, including `centerline`, `rmapshaper`, and `geos`. He is actively developing other R packages, which are published on GitHub only, including soil erosion and hydrological modelling tools, time-series analysis and spatial filtering with Whittaker-Eilers smoother.
+**Anatolii Tsyplenkov, PhD**: Dr Tsyplenkov (Researcher, Manaaki Whenua – Landcare Research) is a geoscientist with a specialisation in geomorphology and a long-running interest in geospatial analysis. He has authored or contributed to several geospatial packages on CRAN, including `centerline`, `rmapshaper`, and `geos`. He is actively developing other R packages, which are published on GitHub only, including soil erosion and hydrological modelling tools, time-series analysis and spatial filtering.
 
 
 <!-- ## Contributors -->
