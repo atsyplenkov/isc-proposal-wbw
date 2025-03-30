@@ -23,7 +23,7 @@ The milestones and deliverables outlined in the Gantt chart (@fig-gannt) should 
 How could this be extended / developed in the future by yourself and/or the community in general?
 -->
 
-The project completion will mean that all functions from the current version (v1.3.4) of the _'Whitebox Workflows for Python'_ are implemented. However, the _'Whitebox Workflows for Python'_ itself is still under active development (see PyPi [release history](https://pypi.org/project/whitebox-workflows/#history)), with new tools being introduced with new versions. We will ensure that every release of the _'Whitebox Workflows for Python'_ will be mirrored in the `wbw` package by the project leader or by other maintainers in the ROpenSci community.
+The project completion will mean that all functions from the current version (v1.3.4) of the _'Whitebox Workflows for Python'_ are implemented. However, the _'Whitebox Workflows for Python'_ itself is still under active development (see PyPi [[release history]{.underline}](https://pypi.org/project/whitebox-workflows/#history)), with new tools being introduced with new versions. We will ensure that every release of the _'Whitebox Workflows for Python'_ will be mirrored in the `wbw` package by the project leader or by other maintainers in the ROpenSci community.
 
 ## Key risks
 <!-- 
