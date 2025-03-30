@@ -25,6 +25,7 @@ execute:
 
 format:
   hikmah-pdf:
+    left-aligned: true
     # Font settings
     sansfont: "Jost"
     mainfont: "Inter"
