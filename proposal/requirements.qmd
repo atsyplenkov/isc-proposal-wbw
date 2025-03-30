@@ -35,11 +35,12 @@ Development will take place on GitHub using the Git version control system, Code
 -->
 
 The timeline above (see @fig-gannt for details) envisions the project leader contributing 1/6 FTE during a 6-month period of active development (from May to October 2025). At a mean data science salary in New Zealand of about $140,000 NZD per year (according to the [Hays salary guide](https://www.hays.com.au/documents/276732/1102429/Hays+Salary+Guide+FY24_25+EMBARGO.pdf) for FY2024/2025), this amounts to roughly $11,600 NZD or $6,600 USD. $500 USD of this sum will be spent on a 'Whitebox Workflows for Python Pro' [subscription](https://www.whiteboxgeo.com/wbw-purchase/), required for implementing Pro functions (see activity No. 2.5 in **WP2**).
+<!-- JN: the part about PRO is confusing -- it was never mentioned before (what's that, etc.); and also how it is suppose to work? -->
 
 Additionally, we are requesting funds for attending the [FOSS4G conference](https://2025.foss4g.org/). Unfortunately, at the moment of writing the current proposal, the registration fees are not yet announced. However, according to the previous [FOSS4G conference in 2023](https://2023.foss4g-oceania.org/#/attend), the early-bird registration fee should be approximately $400 NZD. A round-trip ticket from Palmerston North to Auckland in November should [cost](https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTExLTE1ag0IAhIJL20vMDF0bTJzcgwIAxIIL20vMDEydHMaKRIKMjAyNS0xMS0yMmoMCAMSCC9tLzAxMnRzcg0IAhIJL20vMDF0bTJzQAFIAXABggELCP___________wGYAQE) approximately $200 NZD, with a roughly $700 NZD cost for the hotel room for the conference week, which totals up to an additional $1,300 NZD.
 
 Therefore, the overall project budget is **$13,000 NZD or $7,400 USD**.
-
+<!-- JN: the money mentioned is not adding up to 13,000 NZD -->
 
 ## Summary
 <!--
@@ -47,3 +48,4 @@ A summary of the requirements that contextualises the costs
 -->
 
 Time is expected to be spread across tasks as follows: development and documentation (75%), publication and promotion (15%), coordination (10%).
+<!--JN: I do not know what "coordination" entitles here-->

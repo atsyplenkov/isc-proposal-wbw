@@ -12,7 +12,7 @@ It is important to cover:
  - [ ] Why it should be tackled
 -->
 ```
-Both R and Python have become the *lingua franca* of geospatial analysis. This is evident from the equally growing number of language-specific questions on [GIS Stack Exchange](https://gis.stackexchange.com/) over the past decade (see @fig-trends) and the publishing of the [geocompx](https://geocompx.org/) books such as _Geocomputation with Python_ [@dorman_geocomputation_2025] and _Geocomputation with R_ [@lovelace_geocomputation_2025]. While their high-level interfaces differ, both languages rely on the same core open-source geospatial libraries, such as `GDAL`, `GEOS`, and `PROJ`. They share an object-oriented approach and significant functional overlap, leading to interoperability efforts like the `reticulate` package, which enables Python integration within R.
+Both R and Python have become the *lingua franca* of geospatial analysis. This is evident from the equally growing number of language-specific questions on [GIS Stack Exchange](https://gis.stackexchange.com/) over the past decade (see @fig-trends) and the publishing of the open source [geocompx](https://geocompx.org/) books such as _Geocomputation with Python_ [@dorman_geocomputation_2025] and _Geocomputation with R_ [@lovelace_geocomputation_2025]. While their high-level interfaces differ, both languages rely on the same core open-source geospatial libraries, such as `GDAL`, `GEOS`, and `PROJ`. They share an object-oriented approach and significant functional overlap, leading to interoperability efforts like the `reticulate` package, which enables Python integration within R.
 
 
 ```{r}
@@ -29,16 +29,16 @@ ggplot2::theme_set(theme_wbw())
 
 ```{r}
 tags <- c(
-  "python;shapely",
-  "pyproj",
-  "geopandas",
-  "rioxarray",
-  "xarray",
-  "r;sf",
-  "r;sp",
-  "r;terra",
-  "r;stars",
-  "r;raster"
+    "python;shapely",
+    "pyproj",
+    "geopandas",
+    "rioxarray",
+    "xarray",
+    "r;sf",
+    "r;sp",
+    "r;terra",
+    "r;stars",
+    "r;raster"
 )
 # base_url <- "https://api.stackexchange.com/2.3/questions"
 # end_date <- Sys.Date()
@@ -86,37 +86,37 @@ results <- qs::qread("data/gis-se_responses.qs")
 
 # Bind together individual tag's responses
 final_df <-
-  results |>
-  dplyr::bind_rows() |>
-  dplyr::as_tibble()
+    results |>
+    dplyr::bind_rows() |>
+    dplyr::as_tibble()
 
 # Count unique questions per day
 tag_df <-
-  final_df |>
-  dplyr::distinct(question_id, .keep_all = TRUE) |>
-  dplyr::mutate(date = lubridate::as_date(creation_date)) |>
-  dplyr::group_by(date, tag) |>
-  dplyr::reframe(count = dplyr::n())
+    final_df |>
+    dplyr::distinct(question_id, .keep_all = TRUE) |>
+    dplyr::mutate(date = lubridate::as_date(creation_date)) |>
+    dplyr::group_by(date, tag) |>
+    dplyr::reframe(count = dplyr::n())
 
 # Cumulative sums
 cumsum_df <-
-  tag_df |>
-  dplyr::filter(!grepl("gdal", tag)) |>
-  dplyr::mutate(
-    lang = dplyr::case_when(
-      grepl("python;", tag) ~ "python",
-      grepl("geopandas", tag) ~ "python",
-      grepl("xarray", tag) ~ "python",
-      grepl("pyproj", tag) ~ "python",
-      grepl("sf$", tag) ~ "r",
-      grepl("sp$", tag) ~ "r",
-      grepl("r;", tag) ~ "r"
-    )
-  ) |>
-  dplyr::group_by(lang) |>
-  dplyr::arrange(date, .by_group = TRUE) |>
-  dplyr::mutate(count = cumsum(count)) |>
-  dplyr::ungroup()
+    tag_df |>
+    dplyr::filter(!grepl("gdal", tag)) |>
+    dplyr::mutate(
+        lang = dplyr::case_when(
+            grepl("python;", tag) ~ "python",
+            grepl("geopandas", tag) ~ "python",
+            grepl("xarray", tag) ~ "python",
+            grepl("pyproj", tag) ~ "python",
+            grepl("sf$", tag) ~ "r",
+            grepl("sp$", tag) ~ "r",
+            grepl("r;", tag) ~ "r"
+        )
+    ) |>
+    dplyr::group_by(lang) |>
+    dplyr::arrange(date, .by_group = TRUE) |>
+    dplyr::mutate(count = cumsum(count)) |>
+    dplyr::ungroup()
 ```
 
 
@@ -124,7 +124,7 @@ cumsum_df <-
 
 # Annotation text
 md_text <-
-  "# ![](https://cdn.sstatic.net/Sites/gis/Img/logo.svg)<br>
+    "# ![](https://cdn.sstatic.net/Sites/gis/Img/logo.svg)<br>
 Cumulative sum of unique questions at _https://gis.stackexchange.com/_,
 tagged either with {#EE6677 **Python**} ![](assets/Python-logo-notext.svg) or
 ![](https://cran.r-project.org/Rlogo.svg) languages since 2015 to present
@@ -138,77 +138,81 @@ tagged either with {#EE6677 **Python**} ![](assets/Python-logo-notext.svg) or
 
 # Annotation style
 text_box_style <-
-  marquee::modify_style(
-    marquee::classic_style(
-      base_size = 4,
-      body_font = "Inter",
-      header_font = "Inter",
-    ),
-    "body",
-    padding = marquee::skip_inherit(marquee::trbl(-10, 2, 2, 2)),
-    border_radius = 3
-  )
+    marquee::modify_style(
+        marquee::classic_style(
+            base_size = 4,
+            body_font = "Inter",
+            header_font = "Inter",
+        ),
+        "body",
+        padding = marquee::skip_inherit(marquee::trbl(-10, 2, 2, 2)),
+        border_radius = 3
+    )
 
 plt_gis <-
-  cumsum_df |>
-  ggplot2::ggplot(
-    ggplot2::aes(
-      x = date,
-      y = count,
-      color = lang
+    cumsum_df |>
+    ggplot2::ggplot(
+        ggplot2::aes(
+            x = date,
+            y = count,
+            color = lang
+        )
+    ) +
+    ggplot2::geom_line() +
+    ggplot2::annotate(
+        GeomMarquee,
+        label = md_text,
+        x = lubridate::as_date("2014-11-01"),
+        y = 2660,
+        family = "Inter",
+        style = text_box_style,
+        size = 2.4,
+        fill = colorspace::lighten("#efebe1", 0.3),
+        width = 0.5,
+        hjust = "left",
+        vjust = "top"
+    ) +
+    ggplot2::scale_y_continuous(
+        expand = ggplot2::expansion(c(0, 0.01)),
+        breaks = scales::pretty_breaks(),
+        labels = scales::number_format(big.mark = ","),
+        limits = c(0, 2700)
+    ) +
+    ggplot2::scale_x_date(
+        labels = scales::date_format("%Y"),
+        breaks = scales::date_breaks(width = "2 years"),
+        minor_breaks = scales::date_breaks("1 year")
+    ) +
+    ggplot2::scale_color_manual(
+        values = c(wbw_red, wbw_blue)
+    ) +
+    ggplot2::labs(
+        y = "**Cumulative count of unique questions**",
+        x = "",
+        color = ""
+    ) +
+    ggplot2::theme(
+        legend.position = "none"
     )
-  ) +
-  ggplot2::geom_line() +
-  ggplot2::annotate(
-    GeomMarquee,
-    label = md_text,
-    x = lubridate::as_date("2014-11-01"),
-    y = 2660,
-    family = "Inter",
-    style = text_box_style,
-    size = 2.4,
-    fill = colorspace::lighten("#efebe1", 0.3),
-    width = 0.5,
-    hjust = "left",
-    vjust = "top"
-  ) +
-  ggplot2::scale_y_continuous(
-    expand = ggplot2::expansion(c(0, 0.01)),
-    breaks = scales::pretty_breaks(),
-    labels = scales::number_format(big.mark = ","),
-    limits = c(0, 2700)
-  ) +
-  ggplot2::scale_x_date(
-    labels = scales::date_format("%Y"),
-    breaks = scales::date_breaks(width = "2 years"),
-    minor_breaks = scales::date_breaks("1 year")
-  ) +
-  ggplot2::scale_color_manual(
-    values = c(wbw_red, wbw_blue)
-  ) +
-  ggplot2::labs(
-    y = "**Cumulative count of unique questions**",
-    x = "",
-    color = ""
-  ) +
-  ggplot2::theme(
-    legend.position = "none"
-  )
 
 # Save
 wbw_save(
-  "figures/figure01_gis_se_trends.png",
-  plot = plt_gis,
-  dpi = 500,
-  w = 14,
-  h = 11
+    "figures/figure01_gis_se_trends.png",
+    plot = plt_gis,
+    dpi = 500,
+    w = 14,
+    h = 11
 )
 ```
 
 ![Cumulative sums of unique questions asked on a https://gis.stackexchange.com during the 2015–2025 period and tagged with either R or Python.](figures/figure01_gis_se_trends.png){#fig-trends width=60%}
+<!--JN: have you considered adding rgdal and rgeos to the R tags?-->
 
-R’s spatial libraries—such as `sf`, `terra`, `geos`, and `tmap` — offer comprehensive tools for processing and visualising raster and vector data. These tools support various geospatial tasks, including data input/output (I/O), geometry operations, reprojections, spatial statistics, and static or interactive map-making. Additionally, R interfaces with desktop GIS software like [QGIS](https://qgis.org/en/site/), [ArcGIS](http://desktop.arcgis.com/en/arcmap/), [GRASS GIS](https://grass.osgeo.org/), and [SAGA](https://saga-gis.sourceforge.io/en/index.html). Libraries such as `whiteboxR` and `traudem` additionally provide access to widely used command-line tools for terrain analysis, including 'Whitebox Tools' [@lindsayWhiteboxGATCase2016] and TauDEM [@tesfaExtractionHydrologicalProximity2011].
+R’s spatial libraries—such as `sf`, `terra`, `geos`, and `tmap` — offer comprehensive tools for processing and visualising raster and vector data. These tools support various geospatial tasks, including data input/output (I/O), geometry operations, reprojections, spatial statistics, and static or interactive map-making. Additionally, R packages interface with desktop GIS software like [QGIS](https://qgis.org/en/site/), [ArcGIS](http://desktop.arcgis.com/en/arcmap/), [GRASS GIS](https://grass.osgeo.org/), and [SAGA](https://saga-gis.sourceforge.io/en/index.html). Libraries such as `whiteboxR` and `traudem` additionally provide access to widely used command-line tools for terrain analysis, including 'Whitebox Tools' [@lindsayWhiteboxGATCase2016] and TauDEM [@tesfaExtractionHydrologicalProximity2011].
+<!--JN: maybe you can add an information in a parenthesis that Whitebox Tools is a predessor of Whitebox Workflows for Python?-->
 
-Despite R’s extensive geospatial capabilities, terrain analysis—particularly geomorphometric and hydrological modelling—remains computationally inefficient. These workflows often require sequential operations to generate a final raster of interest, such as Digital Elevation Model (DEM) filtering → Fill Sinks → Flow Direction → Flow Accumulation for runoff modelling [@ledouxComputationalModellingTerrains2024]. Currently, such tasks typically rely on external GIS software and can be performed in R via `rgrass`, `RSagaCmd`, `whiteboxR`, or `traudem` packages. Since these workflows produce multiple intermediate rasters that must be written to and read from disk, they involve high I/O overhead. To the authors' knowledge, this challenge is agnostic to programming language and has been only recently tackled by J. Lindsay, who introduced the _'Whitebox Workflows for Python'_.
+<!--JN: I think that the next paragraph would be better if you add one more example of wbw unique capabilities-->
+Despite R’s extensive geospatial capabilities, terrain analysis—particularly geomorphometric and hydrological modelling—remains computationally inefficient. These workflows often require sequential operations to generate a final raster of interest, such as Digital Elevation Model (DEM) filtering → Fill Sinks → Flow Direction → Flow Accumulation for runoff modelling [@ledouxComputationalModellingTerrains2024]. Currently, such tasks typically rely on external GIS software and can be performed in R via `rgrass`, `Rsagacmd`, `whiteboxR`, or `traudem` packages. Since these workflows produce multiple intermediate rasters that must be written to and read from disk, they involve high I/O overhead. To the authors' knowledge, this challenge is agnostic to programming language and has been only recently tackled by J. Lindsay, who introduced the _'Whitebox Workflows for Python'_.
 
+<!--JN: I think you need to explain WWP a bit more. Why is this closed-source (what's the impact of that of this project)? Also later you are mentioning the PRO version of "Whitebox Workflows for Python" -- maybe it would be good to explain it here first.-->
 The _'Whitebox Workflows for Python'_ is a closed-source native extension module for Python designed for advanced geoprocessing. It includes over 500 functions for GIS, remote sensing analysis, and the manipulation of raster, vector, and LiDAR data. Unlike the previously mentioned libraries, it is built on a custom Rust-based core, which enables direct interaction with geospatial data objects. This approach significantly reduces the number of read/write operations during intermediate processing, enhancing performance in complex workflows and minimising wear on a system hardware.
